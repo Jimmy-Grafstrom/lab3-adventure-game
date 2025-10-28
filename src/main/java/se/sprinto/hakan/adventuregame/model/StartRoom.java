@@ -22,8 +22,11 @@ public class StartRoom implements Room {
                     new DungeonRoom().enterRoom(player, ui);
                     break;
                 case "3":
-                    if (!player.hasOpenedChest()) {
+                    if(!player.isTreasureRoomBlocked() && !player.hasOpenedChest()) {
                         new TreasureRoom().enterRoom(player, ui);
+                    } else if (player.isTreasureRoomBlocked()) {
+                        ui.showMessage("En riddare vaktar skattkammaren...");
+                        ui.showMessage("Du måste besegra vätten för att få strida mot riddaren.");
                     } else {
                         ui.showMessage("Du har redan hittat och öppnat kistan");
                     }

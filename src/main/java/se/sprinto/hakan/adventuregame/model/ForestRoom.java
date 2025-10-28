@@ -17,7 +17,7 @@ public class ForestRoom implements Room {
             ui.showMessage("Något glimmar i mossan...");
         }
         if (!player.hasDefeatedTrollkarl()) {
-            ui.showMessage("Du ser en trollkarl");
+            ui.showMessage("Du ser en trollkarl, han kan hela dig så länge du inte har mer än 200 health");
         }
         if (!player.hasDefeatedTrollkarl() && !player.hasFoundKey()) {
             trollkarlIsAliveNotFoundKey(player, ui);
@@ -40,7 +40,8 @@ public class ForestRoom implements Room {
         } else if (choice.equals("2")) {
             if (player.getHealth() < 200) {
                 player.setHealth(player.getHealth() + 100);
-                ui.showMessage("Trollkarlen ger dig mer 100 mer health, så länge du inte har mer än 200 health");
+                ui.showMessage("Trollkarlen ger dig mer 100 mer health");
+                ui.showMessage("Ditt HP: " + player.getHealth());
             } else {
                 ui.showMessage("Du har redan blivit tillräckligt helad säger trollkarlen.");
                 stridMedTrollkarlen(player, ui);
@@ -66,7 +67,8 @@ public class ForestRoom implements Room {
         if (choice.equalsIgnoreCase("ja")) {
             if (player.getHealth() < 200) {
                 player.setHealth(player.getHealth() + 100);
-                ui.showMessage("Trollkarlen ger dig mer 100 mer health, så länge du inte har mer än 200 health");
+                ui.showMessage("Trollkarlen ger dig mer 100 mer health");
+                ui.showMessage("Ditt HP: " + player.getHealth());
             } else {
                 stridMedTrollkarlen(player, ui);
             }

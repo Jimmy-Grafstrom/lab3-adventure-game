@@ -20,6 +20,7 @@ public class DungeonRoom implements Room {
                 } else {
                     ui.showMessage("Du besegrade vätten!");
                     player.setDefeatedEnemy(true);
+                    player.setTreasureRoomBlocked(false);
                 }
             } else if (choice.equalsIgnoreCase("r")) {
                 ui.showMessage("Du springer därifrån!");
