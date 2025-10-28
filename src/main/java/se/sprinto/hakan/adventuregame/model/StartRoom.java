@@ -12,11 +12,10 @@ public class StartRoom implements Room {
             String choice = ui.getInput("Vilken dörr vill du ta? (1=Skog, 2=Fängelse, 3=Skattkammare, q=avsluta)");
             switch (choice) {
                 case "1":
-                    if (!player.hasFoundKey()) {
                         new ForestRoom().enterRoom(player, ui);
-                    } else {
-                        ui.showMessage("Du har redan hittat och plockat upp nyckeln.");
-                    }
+
+//                        ui.showMessage("Du har redan hittat och plockat upp nyckeln.");
+
 
                     break;
                 case "2":

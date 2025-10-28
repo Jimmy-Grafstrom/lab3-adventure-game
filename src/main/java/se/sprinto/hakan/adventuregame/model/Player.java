@@ -3,6 +3,7 @@ package se.sprinto.hakan.adventuregame.model;
 public class Player extends AbstractCharacter {
     private boolean foundKey;
     private boolean defeatedEnemy;
+    private boolean defeatedTrollkarl;
     private boolean openedChest;
 
     public Player(Builder builder) {
@@ -57,9 +58,12 @@ public class Player extends AbstractCharacter {
         return defeatedEnemy;
     }
 
-
+    public boolean hasDefeatedTrollkarl() {return defeatedTrollkarl;}
     public void setDefeatedEnemy(boolean defeatedEnemy) {
         this.defeatedEnemy = defeatedEnemy;
+    }
+    public void setDefeatedTrollkarl(boolean defeatedTrollkarl) {
+        this.defeatedTrollkarl = defeatedTrollkarl;
     }
 
     public boolean hasOpenedChest() {
@@ -71,7 +75,7 @@ public class Player extends AbstractCharacter {
     }
 
     public boolean hasWon() {
-        return foundKey && defeatedEnemy && openedChest;
+        return foundKey && defeatedEnemy && defeatedTrollkarl && openedChest;
     }
 
     @Override
