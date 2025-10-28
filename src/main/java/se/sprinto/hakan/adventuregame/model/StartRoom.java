@@ -15,7 +15,7 @@ public class StartRoom implements Room {
                     if (!player.hasFoundKey()) {
                         new ForestRoom().enterRoom(player, ui);
                     } else {
-                        System.out.println("Du har redan hittat och plockat upp nyckeln.");
+                        ui.showMessage("Du har redan hittat och plockat upp nyckeln.");
                     }
 
                     break;
@@ -26,7 +26,7 @@ public class StartRoom implements Room {
                     if (!player.hasOpenedChest()) {
                         new TreasureRoom().enterRoom(player, ui);
                     } else {
-                        System.out.println("Du har redan hittat och öppnat kistan");
+                        ui.showMessage("Du har redan hittat och öppnat kistan");
                     }
                     break;
                 case "q":
