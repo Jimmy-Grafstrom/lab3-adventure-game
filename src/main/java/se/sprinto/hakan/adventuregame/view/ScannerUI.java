@@ -1,6 +1,7 @@
 package se.sprinto.hakan.adventuregame.view;
 
 import java.util.Scanner;
+import java.util.Set;
 
 public class ScannerUI implements UI {
     //OK att instansera Scanner här i detta fall,
@@ -18,5 +19,6 @@ public class ScannerUI implements UI {
         System.out.println(prompt);
         return scanner.nextLine();
     }
+
 }
 
