@@ -6,10 +6,11 @@ import se.sprinto.hakan.adventuregame.view.FakeUi;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class DungeonRoomTest {
+class TreasureRoomTest {
+
     private Player testPlayer;
     private FakeUi ui;
-    private DungeonRoom testRoom;
+    private TreasureRoom testRoom;
 
     @BeforeEach
     void setUp() {
@@ -20,13 +21,13 @@ class DungeonRoomTest {
                 .strength(10)
                 .build();
         ui = new FakeUi();
-        testRoom = new DungeonRoom();
+        testRoom = new TreasureRoom();
     }
-
     @Test
-    void enterRoom_WhenPlayerAttackEnemy_HasDefeatedEnemyIsTrue() {
-        ui.setInput("a");
+    void enterRoom_HasOpenedChest_IsTrue() {
+        ui.setInput("ja");
+        testPlayer.setFoundKey(true);
         testRoom.enterRoom(testPlayer, ui);
-        assertTrue(testPlayer.hasDefeatedEnemy());
+        assertTrue(testPlayer.hasOpenedChest());
     }
 }

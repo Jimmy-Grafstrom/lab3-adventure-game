@@ -2,14 +2,13 @@ package se.sprinto.hakan.adventuregame.model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import se.sprinto.hakan.adventuregame.view.FakeUi;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class DungeonRoomTest {
+class PlayerTest {
+
     private Player testPlayer;
-    private FakeUi ui;
-    private DungeonRoom testRoom;
+    private AbstractCharacter testEnemy;
 
     @BeforeEach
     void setUp() {
@@ -19,14 +18,13 @@ class DungeonRoomTest {
                 .score(0)
                 .strength(10)
                 .build();
-        ui = new FakeUi();
-        testRoom = new DungeonRoom();
+        testEnemy = new Enemy("testEnemy", 100,0, 10);
     }
 
     @Test
-    void enterRoom_WhenPlayerAttackEnemy_HasDefeatedEnemyIsTrue() {
-        ui.setInput("a");
-        testRoom.enterRoom(testPlayer, ui);
-        assertTrue(testPlayer.hasDefeatedEnemy());
+    void attack_WhenPlayerAttack_EnemyHealthMinusTen() {
+        testPlayer.attack(testEnemy);
+
+        assertEquals(90, testEnemy.getHealth());
     }
 }
