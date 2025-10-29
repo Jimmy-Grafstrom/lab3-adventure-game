@@ -6,17 +6,13 @@ public class StartRoom implements Room {
 
     @Override
     public void enterRoom(Player player, UI ui) {
-        ui.showMessage("Du befinner dig i start-rummet. Du ser tre dörrar framför dig.");
+        ui.showMessage("Du befinner dig i start-rummet. Du ser sex dörrar framför dig.");
         boolean exit = false;
         while (!exit) {
-            String choice = ui.getInput("Vilken dörr vill du ta? (1=Skog, 2=Fängelse, 3=Skattkammare, q=avsluta)");
+            String choice = ui.getInput("Vilken dörr vill du ta? (1=Skog, 2=Fängelse, 3=Skattkammare, 4=Butiken, 5=Bergen, 6=IT-Högskolan, q=avsluta)");
             switch (choice) {
                 case "1":
                         new ForestRoom().enterRoom(player, ui);
-
-//                        ui.showMessage("Du har redan hittat och plockat upp nyckeln.");
-
-
                     break;
                 case "2":
                     new DungeonRoom().enterRoom(player, ui);
@@ -30,6 +26,15 @@ public class StartRoom implements Room {
                     } else {
                         ui.showMessage("Du har redan hittat och öppnat kistan");
                     }
+                    break;
+                case "4":
+                    new ShopRoom().enterRoom(player, ui);
+                    break;
+                case "5":
+                    new MountainRoom().enterRoom(player, ui);
+                    break;
+                case "6":
+                    new IthsRoom().enterRoom(player, ui);
                     break;
                 case "q":
                     exit = true;

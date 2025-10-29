@@ -19,6 +19,7 @@ public class TreasureRoom implements Room {
                     player.addScore(100);
                 } else {
                     ui.showMessage("Kistan är låst, du saknar nyckeln...");
+                    ui.showMessage(player.looseScoreInfo(5));
                 }
             } else {
                 ui.showMessage("Du lämnar kistan orörd.");

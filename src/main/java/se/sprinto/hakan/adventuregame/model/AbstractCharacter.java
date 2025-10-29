@@ -38,6 +38,16 @@ public abstract class AbstractCharacter {
         this.score += amount;
     }
 
+    private void looseScore(int amount) {
+        if(this.score >= amount) {
+            this.score -= amount;
+        }
+    }
+    public String looseScoreInfo(int points) {
+        looseScore(points);
+        return "You lost " + points + " score";
+    }
+
     public int getStrength() {
         return strength;
     }

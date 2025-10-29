@@ -7,6 +7,8 @@ public class Player extends AbstractCharacter {
     private boolean openedChest;
     private boolean treasureRoomBlocked = true;
     private boolean defeatedRiddare;
+    private boolean GoodGuy;
+    private boolean defeatedCashier;
 
     public Player(Builder builder) {
         super(builder.name, builder.health, builder.score, builder.strength);
@@ -94,6 +96,22 @@ public class Player extends AbstractCharacter {
 
     public boolean hasWon() {
         return foundKey && defeatedEnemy && defeatedTrollkarl && openedChest;
+    }
+
+    public boolean isGoodGuy() {
+        return GoodGuy;
+    }
+
+    public void setGoodGuy(boolean goodGuy) {
+        GoodGuy = goodGuy;
+    }
+
+    public boolean hasDefeatedCashier() {
+        return defeatedCashier;
+    }
+
+    public void setDefeatedCashier(boolean defeatedCashier) {
+        this.defeatedCashier = defeatedCashier;
     }
 
     @Override
