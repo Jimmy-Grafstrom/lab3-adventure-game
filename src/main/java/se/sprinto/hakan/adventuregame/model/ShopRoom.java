@@ -16,6 +16,8 @@ public class ShopRoom implements Room {
             String attackCashier = ui.getInput("Det sitter en expedit i kassan, vill du attackera? ja/nej");
             if (attackCashier.equalsIgnoreCase("ja")) {
                 ui.showMessage("du besegrade expediten med ett slag, nu kan du inte handla.");
+                ui.showMessage(player.looseScoreInfo(20));
+                    //ui.showMessage("du förlorade 20 score");
                 player.setDefeatedCashier(true);
             } else if (attackCashier.equalsIgnoreCase("nej")) {
                 player.setGoodGuy(true);
@@ -54,6 +56,8 @@ public class ShopRoom implements Room {
         if (player.getStrength() < 100) {
             player.setStrength(player.getStrength() + 10);
             ui.showMessage("Du drack kaffet och fick totalt " + player.getStrength() + " i styrka");
+        } else {
+            ui.showMessage("Kaffe har ingen effekt över 100");
         }
     }
 }
