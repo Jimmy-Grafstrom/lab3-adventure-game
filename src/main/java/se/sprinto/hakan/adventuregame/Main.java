@@ -30,10 +30,15 @@ public class Main {
         dao.save(new Statistics(player.getName(), player.getScore()));
 
         StatisticsService service = new StatisticsService(dao);
-        ui.showMessage("\n--- Topplista ---");
+        StringBuilder leaderboard = new StringBuilder();
+        leaderboard.append("--- Topplista ---\n\n");
         for (Statistics s : service.getSortedStatistics()) {
-            ui.showMessage(s.getPlayerName() + " - " + s.getScore() + " poäng");
+            leaderboard.append(s.getPlayerName())
+                       .append(" - ")
+                       .append(s.getScore())
+                       .append(" poäng\n");
         }
+        ui.showMessage(leaderboard.toString());
     }
 }
 
