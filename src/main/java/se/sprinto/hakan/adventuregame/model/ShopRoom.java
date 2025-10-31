@@ -17,7 +17,6 @@ public class ShopRoom implements Room {
             if (attackCashier.equalsIgnoreCase("ja")) {
                 ui.showMessage("du besegrade expediten med ett slag, nu kan du inte handla.");
                 ui.showMessage(player.looseScoreInfo(20));
-                    //ui.showMessage("du förlorade 20 score");
                 player.setDefeatedCashier(true);
             } else if (attackCashier.equalsIgnoreCase("nej")) {
                 player.setGoodGuy(true);

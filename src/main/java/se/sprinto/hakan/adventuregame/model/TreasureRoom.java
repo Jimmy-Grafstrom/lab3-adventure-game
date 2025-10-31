@@ -35,7 +35,7 @@ public class TreasureRoom implements Room {
             String choice = ui.getInput("Vill du (a)ttackera eller (r)etirera?");
             if (choice.equalsIgnoreCase("a")) {
                 player.attack(riddare);
-                ui.showMessage("Du attackerar riddaren! Riddaren HP: " + riddare.getHealth());
+                ui.showMessage("Du attackerar riddaren! Riddarens HP: " + riddare.getHealth());
                 if (riddare.isAlive()) {
                     riddare.attack(player);
                     ui.showMessage("Riddaren attackerar dig! Ditt HP: " + player.getHealth());

@@ -37,6 +37,7 @@ public class ForestRoom implements Room {
             ui.showMessage("Du hittar en nyckel!");
             player.setFoundKey(true);
             player.addScore(20);
+            ui.showMessage("Score: " + player.getScore());
         } else if (choice.equals("2")) {
             if (player.getHealth() < 200) {
                 player.setHealth(player.getHealth() + 100);

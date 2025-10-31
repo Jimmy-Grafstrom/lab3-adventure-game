@@ -6,28 +6,27 @@ import se.sprinto.hakan.adventuregame.view.FakeUi;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TreasureRoomTest {
+class MountainRoomTest {
 
-    private Player testPlayer;
+    private MountainRoom mountainRoom;
+    private Player player;
     private FakeUi ui;
-    private TreasureRoom testRoom;
-
     @BeforeEach
     void setUp() {
-        testPlayer = new Player.Builder()
+        player = new Player.Builder()
                 .name("testPlayer")
                 .health(100)
                 .score(0)
-                .strength(100)
+                .strength(10)
                 .build();
+        mountainRoom = new MountainRoom();
         ui = new FakeUi();
-        testRoom = new TreasureRoom();
     }
     @Test
-    void enterRoom_HasOpenedChest_IsTrue() {
-        ui.setMultipleInputs("a","ja");
-        testPlayer.setFoundKey(true);
-        testRoom.enterRoom(testPlayer, ui);
-        assertTrue(testPlayer.hasOpenedChest());
+    void enterRoom_InputIsJa_PlayerIsDead() {
+        ui.setInput("ja");
+        mountainRoom.enterRoom(player, ui);
+        assertEquals(0, player.getHealth());
+        assertFalse(player.isAlive());
     }
 }
