@@ -7,6 +7,7 @@ public class StartRoom implements Room {
     @Override
     public void enterRoom(Player player, UI ui) {
         ui.showMessage("Du befinner dig i start-rummet. Du ser sex dörrar framför dig.");
+        ui.showMessage("Du måste besegra alla fiender och hitta skatten för att vinna.");
         boolean exit = false;
         while (!exit) {
             String choice = ui.getInput("Vilken dörr vill du ta? (1=Skog, 2=Fängelse, 3=Skattkammare, 4=Butiken, 5=Bergen, 6=IT-Högskolan, q=avsluta)");

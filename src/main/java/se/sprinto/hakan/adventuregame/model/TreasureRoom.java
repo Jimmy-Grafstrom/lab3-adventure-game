@@ -4,7 +4,7 @@ import se.sprinto.hakan.adventuregame.view.UI;
 
 public class TreasureRoom implements Room {
 
-    private Riddare riddare = new Riddare("Riddaren", 100, 0, 20);
+    private Riddare riddare = new Riddare("Riddaren", 200, 0, 40);
     @Override
     public void enterRoom(Player player, UI ui) {
 

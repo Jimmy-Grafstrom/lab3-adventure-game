@@ -15,11 +15,13 @@ public class ShopRoom implements Room {
         } else {
             String attackCashier = ui.getInput("Det sitter en expedit i kassan, vill du attackera? ja/nej");
             if (attackCashier.equalsIgnoreCase("ja")) {
-                ui.showMessage("du besegrade expediten med ett slag, nu kan du inte handla.");
+                ui.showMessage("Du besegrade expediten med ett slag, nu kan du inte handla.");
+                ui.showMessage("Expediten var ingen fiende...");
                 ui.showMessage(player.looseScoreInfo(20));
                 player.setDefeatedCashier(true);
             } else if (attackCashier.equalsIgnoreCase("nej")) {
                 player.setGoodGuy(true);
+                ui.showMessage("Du har visat att du är en good guy och har fri tillgång till butiken.");
                 shop(player, ui);
             } else {
                 ui.showMessage("Du lämnar butiken");
