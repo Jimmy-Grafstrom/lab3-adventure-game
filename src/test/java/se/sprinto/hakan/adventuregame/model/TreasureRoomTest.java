@@ -23,11 +23,30 @@ class TreasureRoomTest {
         ui = new FakeUi();
         testRoom = new TreasureRoom();
     }
+
     @Test
-    void enterRoom_HasOpenedChest_IsTrue() {
-        ui.setMultipleInputs("a","ja");
+    void enterRoom_opensChestWithKey() {
+        // Arrange
         testPlayer.setFoundKey(true);
+        ui.setInput("ja");
+
+        // Act
         testRoom.enterRoom(testPlayer, ui);
+
+        // Assert
         assertTrue(testPlayer.hasOpenedChest());
+        assertEquals(100, testPlayer.getScore());
+    }
+
+    @Test
+    void enterRoom_chestStaysLockedWithoutKey() {
+        // Arrange
+        ui.setInput("ja");
+
+        // Act
+        testRoom.enterRoom(testPlayer, ui);
+
+        // Assert
+        assertFalse(testPlayer.hasOpenedChest());
     }
 }

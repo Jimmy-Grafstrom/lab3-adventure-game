@@ -11,6 +11,7 @@ class MountainRoomTest {
     private MountainRoom mountainRoom;
     private Player player;
     private FakeUi ui;
+
     @BeforeEach
     void setUp() {
         player = new Player.Builder()
@@ -22,11 +23,32 @@ class MountainRoomTest {
         mountainRoom = new MountainRoom();
         ui = new FakeUi();
     }
+
     @Test
-    void enterRoom_InputIsJa_PlayerIsDead() {
+    void enterRoom_climbAndTalkToWizard_getsHealed() {
+        // Arrange
         ui.setInput("ja");
+
+        // Act
         mountainRoom.enterRoom(player, ui);
-        assertEquals(0, player.getHealth());
-        assertFalse(player.isAlive());
+
+        // Assert
+        assertEquals(200, player.getHealth());
     }
+//TODO mock
+
+//    @Test
+//    void enterRoom_climbAndFightWizard_playerWins() {
+//        // Arrange
+//        player.setHealth(200);
+//        ui.setInputs("ja", "ja", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"); // Ja to climb, ja to talk, then attack until wizard is defeated
+//
+//        // Act
+//        mountainRoom.enterRoom(player, ui);
+//
+//        // Assert
+//        assertTrue(player.hasDefeatedTrollkarl());
+//        assertTrue(player.isAlive());
+//    }
+
 }

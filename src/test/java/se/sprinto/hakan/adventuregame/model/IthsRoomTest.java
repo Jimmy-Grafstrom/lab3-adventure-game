@@ -23,26 +23,31 @@ class IthsRoomTest {
         ithsRoom = new IthsRoom();
         ui = new FakeUi();
     }
+//TODO mock
+
+//    @Test
+//    void enterRoom_playerDefeatsKnightAndCanStudy() {
+//        // Arrange
+//        player.setStrength(100); // Make player strong enough to defeat the knight
+//        ui.setInputs("a", "a", "a", "a", "a", "2", "nej"); // Attack knight, then study
+//
+//        // Act
+//        ithsRoom.enterRoom(player, ui);
+//
+//        // Assert
+//        assertTrue(player.hasDefeatedRiddare());
+//        assertEquals(150, player.getHealth()); // 100 (start) - damage + 50 (study)
+//    }
 
     @Test
-    void enterRoom_WhenPlayPingis_LoosePointsAndHealth() {
-        ui.setInput("1");
-        ithsRoom.enterRoom(player, ui);
-        assertEquals(0, player.getScore());
-        assertEquals(90, player.getHealth());
-    }
+    void enterRoom_playerTriesToEnterWithoutDefeatingKnight() {
+        // Arrange
+        ui.setInput("r"); // Retreat from knight
 
-    @Test
-    void enterRoom_WhenPlayPingis_DontLoosePointsIfLessThan10() {
-        player = new Player.Builder()
-                .name("testPlayer")
-                .health(100)
-                .score(5)
-                .strength(10)
-                .build();
-        ui.setInput("1");
+        // Act
         ithsRoom.enterRoom(player, ui);
-        assertEquals(5, player.getScore());
-        assertEquals(90, player.getHealth());
+
+        // Assert
+        assertFalse(player.hasDefeatedRiddare());
     }
 }

@@ -25,7 +25,7 @@ class DungeonRoomTest {
 
     @Test
     void enterRoom_WhenPlayerAttackEnemy_HasDefeatedEnemyIsTrue() {
-        ui.setMultipleInputs("a", "a");
+        ui.setInput("a");
         testRoom.enterRoom(testPlayer, ui);
         assertTrue(testPlayer.hasDefeatedEnemy());
     }

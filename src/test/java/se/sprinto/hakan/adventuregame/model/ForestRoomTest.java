@@ -24,16 +24,15 @@ class ForestRoomTest {
     }
 
     @Test
-    void enterRoom_HasFoundKey_IsTrue() {
+    void enterRoom_findsKey() {
         // arrange
-        testPlayer.setDefeatedTrollkarl(true);
         ui.setInput("ja");
-        //ui.getMultipleInputs("1","ja");
 
         // act
         testRoom.enterRoom(testPlayer, ui);
 
         // assert
         assertTrue(testPlayer.hasFoundKey());
+        assertEquals(20, testPlayer.getScore());
     }
 }

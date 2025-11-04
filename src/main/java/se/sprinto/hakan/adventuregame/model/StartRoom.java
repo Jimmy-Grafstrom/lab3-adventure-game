@@ -13,17 +13,14 @@ public class StartRoom implements Room {
             String choice = ui.getInput("Vilken dörr vill du ta? (1=Skog, 2=Fängelse, 3=Skattkammare, 4=Butiken, 5=Bergen, 6=IT-Högskolan, q=avsluta)");
             switch (choice) {
                 case "1":
-                        new ForestRoom().enterRoom(player, ui);
+                    new ForestRoom().enterRoom(player, ui);
                     break;
                 case "2":
                     new DungeonRoom().enterRoom(player, ui);
                     break;
                 case "3":
-                    if(!player.isTreasureRoomBlocked() && !player.hasOpenedChest()) {
+                    if (!player.hasOpenedChest()) {
                         new TreasureRoom().enterRoom(player, ui);
-                    } else if (player.isTreasureRoomBlocked()) {
-                        ui.showMessage("En riddare vaktar skattkammaren...");
-                        ui.showMessage("Du måste besegra vätten för att få strida mot riddaren.");
                     } else {
                         ui.showMessage("Du har redan hittat och öppnat kistan");
                     }
