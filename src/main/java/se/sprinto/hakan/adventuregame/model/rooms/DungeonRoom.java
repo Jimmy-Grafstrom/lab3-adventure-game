@@ -1,5 +1,7 @@
-package se.sprinto.hakan.adventuregame.model;
+package se.sprinto.hakan.adventuregame.model.rooms;
 
+import se.sprinto.hakan.adventuregame.model.characters.Enemy;
+import se.sprinto.hakan.adventuregame.model.characters.Player;
 import se.sprinto.hakan.adventuregame.view.UI;
 
 public class DungeonRoom implements Room {
@@ -20,7 +22,10 @@ public class DungeonRoom implements Room {
                 } else {
                     ui.showMessage("Du besegrade vätten!");
                     player.setDefeatedEnemy(true);
-                    player.setTreasureRoomBlocked(false);
+                    if(player.getStrength() < 50) {
+                        player.setStrength(player.getStrength() + 50);
+                        ui.showMessage("Strength: " + player.getStrength());
+                    }
                     ui.showMessage("Score: " + player.getScore());
                 }
             } else if (choice.equalsIgnoreCase("r")) {

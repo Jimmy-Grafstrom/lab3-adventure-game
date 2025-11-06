@@ -2,8 +2,8 @@ package se.sprinto.hakan.adventuregame;
 
 import se.sprinto.hakan.adventuregame.dao.FileStatisticsDao;
 import se.sprinto.hakan.adventuregame.dao.StatisticsDao;
-import se.sprinto.hakan.adventuregame.model.Player;
-import se.sprinto.hakan.adventuregame.model.StartRoom;
+import se.sprinto.hakan.adventuregame.model.characters.Player;
+import se.sprinto.hakan.adventuregame.model.rooms.StartRoom;
 import se.sprinto.hakan.adventuregame.model.Statistics;
 import se.sprinto.hakan.adventuregame.properties.ConfigManager;
 import se.sprinto.hakan.adventuregame.service.StatisticsService;

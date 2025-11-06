@@ -1,4 +1,4 @@
-package se.sprinto.hakan.adventuregame.model;
+package se.sprinto.hakan.adventuregame.model.characters;
 
 public class Enemy extends AbstractCharacter {
 

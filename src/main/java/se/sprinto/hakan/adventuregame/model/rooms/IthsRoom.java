@@ -1,10 +1,12 @@
-package se.sprinto.hakan.adventuregame.model;
+package se.sprinto.hakan.adventuregame.model.rooms;
 
+import se.sprinto.hakan.adventuregame.model.characters.Player;
+import se.sprinto.hakan.adventuregame.model.characters.Riddare;
 import se.sprinto.hakan.adventuregame.view.UI;
 
 public class IthsRoom implements Room {
-    int timesStudied;
-    private final Riddare riddare = new Riddare("Riddaren", 200, 0, 40);
+    private int timesStudied;
+    private final Riddare riddare = new Riddare("Riddaren", 100, 0, 20);
 
     @Override
     public void enterRoom(Player player, UI ui) {
@@ -18,7 +20,7 @@ public class IthsRoom implements Room {
                 ui.showMessage("Du spelar pingis och får en pingisboll i ansiktet");
                 player.setHealth(player.getHealth() - 10);
                 ui.showMessage("Du förlorar 10 HP, din HP: " + player.getHealth());
-                ui.showMessage(player.looseScoreInfo(10));
+                ui.showMessage(player.loseScoreInfo(10));
 
             } else if (choice.equals("2")) {
                 boolean studying = true;
@@ -44,6 +46,9 @@ public class IthsRoom implements Room {
         }
     }
 
+    /**
+     * Hjälpmetod för att strida med riddaren
+     */
     private void stridMedRiddaren(Player player, UI ui) {
         ui.showMessage("En riddare står i vägen! Du måste besegra honom för att komma in.");
         while (player.isAlive() && riddare.isAlive()) {

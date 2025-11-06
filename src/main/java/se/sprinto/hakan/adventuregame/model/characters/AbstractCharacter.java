@@ -1,7 +1,7 @@
-package se.sprinto.hakan.adventuregame.model;
+package se.sprinto.hakan.adventuregame.model.characters;
 
 public abstract class AbstractCharacter {
-    private String name;
+    private final String name;
     private int health;
     private int score;
     private int strength;
@@ -38,15 +38,20 @@ public abstract class AbstractCharacter {
         this.score += amount;
     }
 
-    private boolean looseScore(int amount) {
+    /**
+     * Ser till att poängavdrag inte kan orsaka negativa poäng.
+     * Detta är en hjälpmetod som används i loseScoreInfo där poängavdraget utförs.
+     *
+     * @param amount = antal poäng
+     * @return true/false
+     */
+    private boolean loseScore(int amount) {
         return (this.score >= amount);
-
     }
-    public String looseScoreInfo(int points) {
-        if (looseScore(points)) {
+    public String loseScoreInfo(int points) {
+        if (loseScore(points)) {
             this.score -= points;
-            looseScore(points);
-            return "You lost " + points + " score\nCurrent score: " + getScore();
+            return "Du förlorade " + points + " poäng\nScore: " + getScore();
         } else {
             return "Score: " + getScore();
         }

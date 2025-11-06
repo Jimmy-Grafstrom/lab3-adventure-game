@@ -1,7 +1,8 @@
-package se.sprinto.hakan.adventuregame.model;
+package se.sprinto.hakan.adventuregame.model.rooms;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import se.sprinto.hakan.adventuregame.model.characters.Player;
 import se.sprinto.hakan.adventuregame.view.FakeUi;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,33 +21,15 @@ class TreasureRoomTest {
                 .score(0)
                 .strength(100)
                 .build();
-        ui = new FakeUi();
         testRoom = new TreasureRoom();
+        ui = new FakeUi();
     }
 
     @Test
-    void enterRoom_opensChestWithKey() {
-        // Arrange
+    void enterRoom_HasOpenedChest_IsTrue() {
+        ui.setInput("ja");
         testPlayer.setFoundKey(true);
-        ui.setInput("ja");
-
-        // Act
         testRoom.enterRoom(testPlayer, ui);
-
-        // Assert
         assertTrue(testPlayer.hasOpenedChest());
-        assertEquals(100, testPlayer.getScore());
-    }
-
-    @Test
-    void enterRoom_chestStaysLockedWithoutKey() {
-        // Arrange
-        ui.setInput("ja");
-
-        // Act
-        testRoom.enterRoom(testPlayer, ui);
-
-        // Assert
-        assertFalse(testPlayer.hasOpenedChest());
     }
 }

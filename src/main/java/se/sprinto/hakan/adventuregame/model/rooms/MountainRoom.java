@@ -1,10 +1,13 @@
-package se.sprinto.hakan.adventuregame.model;
+package se.sprinto.hakan.adventuregame.model.rooms;
 
+import se.sprinto.hakan.adventuregame.model.characters.AbstractCharacter;
+import se.sprinto.hakan.adventuregame.model.characters.Player;
+import se.sprinto.hakan.adventuregame.model.characters.Trollkarl;
 import se.sprinto.hakan.adventuregame.view.UI;
 
 public class MountainRoom implements Room {
 
-    private final AbstractCharacter trollkarl = new Trollkarl("Trollkarlen", 100, 0, 20);
+    private final AbstractCharacter trollkarl = new Trollkarl("Trollkarlen", 100, 0, 100);
 
     @Override
     public void enterRoom(Player player, UI ui) {
@@ -23,6 +26,10 @@ public class MountainRoom implements Room {
         }
     }
 
+    /**
+     * Hjälpmetod för interaktion med trollkarl,
+     * healing eller ropar på stridmetod.
+     */
     private void trollkarlIsAlive(Player player, UI ui) {
         String choice = ui.getInput("Vill du prata med trollkarlen? (ja/nej)");
         if (choice.equalsIgnoreCase("ja")) {

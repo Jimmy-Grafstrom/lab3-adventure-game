@@ -1,5 +1,6 @@
-package se.sprinto.hakan.adventuregame.model;
+package se.sprinto.hakan.adventuregame.model.rooms;
 
+import se.sprinto.hakan.adventuregame.model.characters.Player;
 import se.sprinto.hakan.adventuregame.view.UI;
 
 public class ForestRoom implements Room {
@@ -15,6 +16,9 @@ public class ForestRoom implements Room {
         }
     }
 
+    /**
+     * Hjälpmetod för att interagera med nyckeln
+     */
     private void notFoundKey(Player player, UI ui) {
         String choice = ui.getInput("vill du undersöka glittret? (ja/nej)");
         if (choice.equalsIgnoreCase("ja")) {

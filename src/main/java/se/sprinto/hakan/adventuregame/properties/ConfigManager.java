@@ -3,16 +3,18 @@ package se.sprinto.hakan.adventuregame.properties;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-import java.util.Set;
 
 public class ConfigManager {
     private static ConfigManager instance;
-    private Properties properties;
+    private final Properties properties;
 
-    private String resourceName = "appInfo.properties";
+    private final String resourceName = "appInfo.properties";
 
     private ConfigManager() {
         properties = new Properties();
+
+/** Använder InputStream för att ta emot ström av data från classpath,
+ *  kan antingen vara en lös fil eller en jar fil*/
         try (InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(resourceName)) {
             if (inputStream == null) {
                 throw new IOException("Resource file " + resourceName + " does not exist");
@@ -23,6 +25,10 @@ public class ConfigManager {
         }
     }
 
+/**  Synchronized betyder att metoden är trådsäker.
+      - Om 2 användare skulle använda metoden samtidigt
+        så kommer endast en tråd att aktiveras
+ */
     public static synchronized ConfigManager getInstance() {
         if (instance == null) {
             instance = new ConfigManager();
@@ -30,10 +36,16 @@ public class ConfigManager {
         return instance;
     }
 
-    public String getValue(String key) {
+    /**
+     * Hjälpmetod för att hämta enstaka properties
+     */
+    private String getValue(String key) {
         return this.properties.getProperty(key, String.format("The key %s does not exists!", key));
     }
 
+    /**
+     * Bygger ihop properties till ett svar
+     */
     public String getVersionAndName() {
         return "Author: " + getValue("author") + "\nVersion: " + getValue("version");
     }

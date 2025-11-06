@@ -1,5 +1,6 @@
-package se.sprinto.hakan.adventuregame.model;
+package se.sprinto.hakan.adventuregame.model.rooms;
 
+import se.sprinto.hakan.adventuregame.model.characters.Player;
 import se.sprinto.hakan.adventuregame.view.UI;
 
 public class ShopRoom implements Room {
@@ -17,7 +18,7 @@ public class ShopRoom implements Room {
             if (attackCashier.equalsIgnoreCase("ja")) {
                 ui.showMessage("Du besegrade expediten med ett slag, nu kan du inte handla.");
                 ui.showMessage("Expediten var ingen fiende...");
-                ui.showMessage(player.looseScoreInfo(20));
+                ui.showMessage(player.loseScoreInfo(20));
                 player.setDefeatedCashier(true);
             } else if (attackCashier.equalsIgnoreCase("nej")) {
                 player.setGoodGuy(true);
@@ -29,6 +30,10 @@ public class ShopRoom implements Room {
         }
     }
 
+    /**
+     * Shop interaktioner nedan.
+     * Hantera affären och egenskaper hos produkter.
+     */
     private void shop(Player player, UI ui) {
         ui.showMessage("Välkommen till butiken.");
         String choice = ui.getInput("""
