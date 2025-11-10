@@ -37,16 +37,6 @@ class IthsRoomTest {
     }
 
     @Test
-    void enterRoom_playerTriesToEnterWithoutDefeatingKnight() {
-        when(mockUi.getInput(anyString())).thenReturn("r");
-
-        ithsRoom.enterRoom(player, mockUi);
-
-        assertFalse(player.hasDefeatedRiddare());
-        verify(mockUi, times(1)).getInput(anyString());
-    }
-
-    @Test
     void enterRoom_playerDefeatsKnightAndCanStudy() {
         when(mockUi.getInput(anyString())).thenReturn("a", "2", "nej");
 

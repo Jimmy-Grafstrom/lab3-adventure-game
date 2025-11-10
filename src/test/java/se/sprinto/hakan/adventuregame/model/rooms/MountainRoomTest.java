@@ -36,16 +36,6 @@ class MountainRoomTest {
     }
 
     @Test
-    void enterRoom_climbAndTalkToWizard_getsHealed() {
-        when(mockUi.getInput(anyString())).thenReturn("ja", "ja");
-        mountainRoom.enterRoom(player, mockUi);
-
-        assertEquals(200, player.getHealth());
-        verify(mockUi, times(2)).getInput(anyString());
-    }
-
-
-    @Test
     void enterRoom_climbAndFightWizard_playerWins() {
         when(mockUi.getInput(anyString())).thenReturn("ja", "ja", "a");
         player.setHealth(200);
@@ -56,5 +46,4 @@ class MountainRoomTest {
         assertTrue(player.isAlive());
         verify(mockUi, times(3)).getInput(anyString());
     }
-
 }

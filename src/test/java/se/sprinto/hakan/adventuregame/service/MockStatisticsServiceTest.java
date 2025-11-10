@@ -11,7 +11,6 @@ import se.sprinto.hakan.adventuregame.model.Statistics;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -40,8 +39,8 @@ class MockStatisticsServiceTest {
         assertEquals(3, sortedStats.size());
         assertEquals(300, sortedStats.get(0).getScore(), "Högsta poängen (300) ska vara först");
         assertEquals("player-1st", sortedStats.get(0).getPlayerName());
-        assertEquals(100, sortedStats.get(1).getScore());
-        assertEquals(20, sortedStats.get(2).getScore());
+        assertEquals("player-2nd", sortedStats.get(1).getPlayerName());
+        assertEquals("player-3rd", sortedStats.get(2).getPlayerName());
 
         verify(mockDao).loadAll();
     }

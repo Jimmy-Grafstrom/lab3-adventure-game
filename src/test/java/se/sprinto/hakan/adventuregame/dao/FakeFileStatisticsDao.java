@@ -8,19 +8,17 @@ import java.util.List;
 
 public class FakeFileStatisticsDao implements StatisticsDao {
 
-    private final File file = new File("statistics.txt");
-    private Statistics statistics;
     @Override
     public void save(Statistics stat) {
-
+        // Gör ingenting
     }
 
     @Override
     public List<Statistics> loadAll() {
         return createFakeList();
-    }
+    } // Returnerar fake-lista
 
-    public List<Statistics> createFakeList() {
+    public List<Statistics> createFakeList() { // Skapar fake-lista
         List<Statistics> stats = new ArrayList<>();
         stats.add(new Statistics("player-2nd", 100));
         stats.add(new Statistics("player-3rd", 20));

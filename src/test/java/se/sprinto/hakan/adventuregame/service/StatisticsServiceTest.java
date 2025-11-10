@@ -10,23 +10,29 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class StatisticsServiceTest {
-    private FakeFileStatisticsDao fakeFileStatisticsDao;
     private StatisticsService statisticsService;
 
     @BeforeEach
     void setUp() {
-        fakeFileStatisticsDao = new FakeFileStatisticsDao();
-        statisticsService = new StatisticsService(fakeFileStatisticsDao);
+        FakeFileStatisticsDao fakeFileStatisticsDao = new FakeFileStatisticsDao(); // Initierar fakeDao
+        statisticsService = new StatisticsService(fakeFileStatisticsDao); // FakeDao injiceras
     }
 
     @Test
     void getSortedStatistics_ReturnSortedList(){
-        List<Statistics> sortedList = statisticsService.getSortedStatistics();
+
+        List<Statistics> sortedList = statisticsService.getSortedStatistics(); // Sorterar listan via service
+        /**
+         * Kontrollerar storlek och ordning
+         */
         assertEquals(3, sortedList.size());
+
         assertEquals("player-1st", sortedList.get(0).getPlayerName());
         assertEquals(300, sortedList.get(0).getScore());
+
         assertEquals("player-2nd", sortedList.get(1).getPlayerName());
         assertEquals(100, sortedList.get(1).getScore());
+
         assertEquals("player-3rd", sortedList.get(2).getPlayerName());
         assertEquals(20, sortedList.get(2).getScore());
     }

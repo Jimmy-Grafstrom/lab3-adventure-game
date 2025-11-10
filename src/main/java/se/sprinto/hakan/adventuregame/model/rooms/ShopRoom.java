@@ -11,7 +11,7 @@ public class ShopRoom implements Room {
             ui.showMessage("Butiken är stängd");
             return;
         }
-        if (player.isGoodGuy()) {
+        if (player.isGoodGuy()) { // False by default
             shop(player, ui);
         } else {
             String attackCashier = ui.getInput("Det sitter en expedit i kassan, vill du attackera? ja/nej");
@@ -21,7 +21,7 @@ public class ShopRoom implements Room {
                 ui.showMessage(player.loseScoreInfo(20));
                 player.setDefeatedCashier(true);
             } else if (attackCashier.equalsIgnoreCase("nej")) {
-                player.setGoodGuy(true);
+                player.setGoodGuy(true); // Ändrar isGoodGuy till true
                 ui.showMessage("Du har visat att du är en good guy och har fri tillgång till butiken.");
                 shop(player, ui);
             } else {
