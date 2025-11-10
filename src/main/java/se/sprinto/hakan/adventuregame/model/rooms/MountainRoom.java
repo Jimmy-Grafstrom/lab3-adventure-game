@@ -19,7 +19,9 @@ public class MountainRoom implements Room {
         ui.showMessage("Du borde nog vända om...");
         String choice = ui.getInput("Vill du klättra i bergen ja/nej");
         if (choice.equalsIgnoreCase("ja")) {
-            ui.showMessage("Du börjar klättra, och du möter en trollkarl!");
+            ui.showMessage("""
+            Du börjar klättra, och du möter en trollkarl!
+            Han helar dig så länge du inte har 200+ i HP""");
             trollkarlIsAlive(player, ui);
         } else {
             ui.showMessage("Klokt att vända om.");

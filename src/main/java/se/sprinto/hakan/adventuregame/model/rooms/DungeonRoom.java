@@ -22,8 +22,8 @@ public class DungeonRoom implements Room {
                 } else {
                     ui.showMessage("Du besegrade vätten!");
                     player.setDefeatedEnemy(true);
-                    if(player.getStrength() < 50) {
-                        player.setStrength(player.getStrength() + 50);
+                    if(player.getStrength() < 30) {
+                        player.setStrength(player.getStrength() + 10);
                         ui.showMessage("Strength: " + player.getStrength());
                     }
                     ui.showMessage("Score: " + player.getScore());

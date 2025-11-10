@@ -14,7 +14,7 @@ public class IthsRoom implements Room {
             ui.showMessage("Du går in i plugget.");
             String choice = ui.getInput("""
                     vad vill du göra?
-                    1: spela pingis
+                    1: Spela pingis
                     2: Öva på att programmera""");
             if (choice.equals("1")) {
                 ui.showMessage("Du spelar pingis och får en pingisboll i ansiktet");
