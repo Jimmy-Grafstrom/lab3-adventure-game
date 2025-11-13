@@ -31,7 +31,7 @@ public class Main {
 
         StatisticsService service = new StatisticsService(dao);
         StringBuilder leaderboard = new StringBuilder();
-        leaderboard.append("--- Topplista ---\n\n");
+        leaderboard.append("---Topplista---\n\n");
         for (Statistics s : service.getSortedStatistics()) {
             leaderboard.append(s.getPlayerName())
                        .append(" - ")
